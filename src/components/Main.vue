@@ -1,7 +1,9 @@
 <template>
-  <div class="hello">
-  <h1>{{ msg }}</h1>
-    <button v-on:click="grabData">Grab data</button>
+  <div class="hello" >
+    <div  v-if="showButton">
+      Sheet url: <input v-model="sheetUrl" name="sheet" type='text'>
+      <button v-on:click="grabData">Grab data</button>
+    </div>
     <project/>
   </div>
 </template>
@@ -11,10 +13,11 @@ import { grabData } from '../gapihandler'
 import Project from '../models/Project.js'
 import Section from '../models/Section.js'
 import store from '../store'
+import * as signedInStates from '../signed-in-states.js'
 
 let fake = false
 
-async function _grabData () {
+async function _grabData (url) {
   if (fake) {
     let project = new Project()
     project.name = 'Wall of RTL'
@@ -57,14 +60,20 @@ async function _grabData () {
     return project
   } else {
     // ...
-    let res = await _grabExcelData()
+    let res = await _grabExcelData(url)
     return res
   }
 }
 
+function _getIdFromUrl (url) {
+  return url.match(/[-\w]{25,}/)
+}
+
 // Q: howto promise to async?
-async function _grabExcelData () {
-  let response = await grabData()
+async function _grabExcelData (url) {
+  let id = _getIdFromUrl(url)
+
+  let response = await grabData(id)
 
   let project = new Project()
 
@@ -147,13 +156,19 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      sheetUrl: null
+    }
+  },
+  computed: {
+    showButton () {
+      return store.state.projectData === null && store.state.signedInState === signedInStates.SIGNED_IN
     }
   },
   methods: {
     async grabData () {
       store.commit('projectData', null)
-      let data = await _grabData()
+      let data = await _grabData(this.sheetUrl)
       console.log(`DATA is ${data}`)
       store.commit('projectData', data)
     }

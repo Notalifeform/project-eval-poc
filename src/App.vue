@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="header">
+    <div id="header" v-if="showHeader">
       <router-link v-bind:to="'/about'">About</router-link>
       <router-link v-bind:to="'/'">Home</router-link>
       <login/>
@@ -17,6 +17,9 @@ export default {
   computed: {
     msg () {
       return store.state.message
+    },
+    showHeader () {
+      return store.state.projectData === null
     }
   }
 }
