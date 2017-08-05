@@ -4,8 +4,24 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import Login from '@/components/Login'
+import ProjectItem from '@/components/ProjectItem'
+import SectionItem from '@/components/SectionItem'
+import moment from 'moment'
 
-import checkgapi from './gapi.js'
+Vue.component('Login', Login)
+Vue.component('Project', ProjectItem)
+Vue.component('section-item', SectionItem)
+
+import { handleClientLoad } from './gapihandler.js'
+import * as signedInStates from './signed-in-states.js'
+
+Vue.filter('formatDateMonthYear', function (value) {
+  if (value) {
+    return moment(value).format('MMMM YYYY')
+  }
+})
+moment.locale('nl')
 
 Vue.config.productionTip = false
 
@@ -45,8 +61,8 @@ var mainapp = new Vue({
   template: '<App/>',
   components: { App },
   mounted: function onmount () {
-    store.commit('status', 'checking login..')
+    store.commit('signedInState', signedInStates.CHECKING)
     console.log('checking login...')
-    checkgapi(this)
+    handleClientLoad()
   }
 })

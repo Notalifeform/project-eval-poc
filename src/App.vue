@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <router-link v-bind:to="'/about'">About</router-link>
-    <router-link v-bind:to="'/login'">About</router-link>
-    <router-link v-bind:to="'/'">Home</router-link>
-    msg: {{ msg }}
+    <div id="header">
+      <router-link v-bind:to="'/about'">About</router-link>
+      <router-link v-bind:to="'/'">Home</router-link>
+      <login/>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
 </script>
 
 <style>
-#app {
+#header {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
