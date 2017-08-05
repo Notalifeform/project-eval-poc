@@ -1,6 +1,7 @@
 
 /* global gapi */
 import store from './store'
+import * as signedInStates from './signed-in-states.js'
 
 var CLIENT_ID = '788562310771-vagjhi4qmo345iinlofd6anj601l1v71.apps.googleusercontent.com'
 
@@ -11,8 +12,23 @@ var DISCOVERY_DOCS = ['https://sheets.googleapis.com/$discovery/rest?version=v4'
 // included, separated by spaces.
 var SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
 
-function handleClientLoad (app) {
+function handleClientLoad () {
   gapi.load('client:auth2', initClient)
+}
+
+function signOut () {
+  gapi.auth2.getAuthInstance().signOut()
+}
+
+function signIn () {
+  gapi.auth2.getAuthInstance().signIn()
+}
+
+function grabData (sheetId = '1Kbx--QrhcQvJdr1z1F3pDEAzEy-ezKI1footkHakQTY', range = 'Sheet1!A2:C100') {
+  return gapi.client.sheets.spreadsheets.values.get({
+    spreadsheetId: sheetId,
+    range: range
+  })
 }
 
 /**
@@ -40,14 +56,14 @@ function updateSigninStatus (isSignedIn) {
     // authorizeButton.style.display = 'none';
     // signoutButton.style.display = 'block';
     // listMajors();
-    store.commit('status', 'yep, signed in')
+    store.commit('signedInState', signedInStates.SIGNED_IN)
     console.log('yep -signed in')
   } else {
     console.log('not signed in')
-    store.commit('status', 'nope.. not signed in...')
-    gapi.auth2.getAuthInstance().signIn()
+    store.commit('signedInState', signedInStates.NOT_SIGNED_IN)
+    // gapi.auth2.getAuthInstance().signIn()
     // authorizeButton.style.display = 'block';
     // signoutButton.style.display = 'none';
   }
 }
-export default handleClientLoad
+export { handleClientLoad, signIn, signOut, grabData }
