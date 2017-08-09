@@ -206,9 +206,10 @@ font-family: 'opensans';
 
 .grade{
     background-color: white;
-    padding: 9px;
+    padding-top: 9px;
+    padding-bottom: 9px;
     border-radius: 50%;
-    width: 30px;
+    width: 48px;
     text-align: center;
     color: #ffcd00;
 }
