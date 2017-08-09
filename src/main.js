@@ -27,6 +27,19 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   console.log(`${to.path}`)
+  store.commit('showHeader', true)
+  if (to.path === '/') {
+    router.push({name: 'Home'})
+    next()
+  }
+  if (to.path === '/render') {
+    if (store.state.projectData === null) {
+      router.push({name: 'Home'})
+      next()
+    }
+    store.commit('showHeader', false)
+  }
+
   // check if the path user is going to is our param path
   // if (to.path === '/about') {
   //   bla.handleClientLoad()

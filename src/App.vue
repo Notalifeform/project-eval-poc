@@ -19,7 +19,8 @@ export default {
       return store.state.message
     },
     showHeader () {
-      return store.state.projectData === null
+      // fixme - thi should be possible using router (now we ser it in router.beforeEach)
+      return store.state.showHeader
     }
   }
 }
