@@ -26,7 +26,7 @@ moment.locale('nl')
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  console.log(`${to.path}`)
+  console.log(`routing to ${to.path}`)
   store.commit('showHeader', true)
   if (to.path === '/') {
     router.push({name: 'Home'})
