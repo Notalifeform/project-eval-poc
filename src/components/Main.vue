@@ -1,10 +1,9 @@
 <template>
   <div class="hello" >
-    <div  v-if="showButton">
+    <div v-if="showButton">
       Sheet url: <input v-model="sheetUrl" name="sheet" type='text'>
       <button v-on:click="grabData">Grab data</button>
     </div>
-    <project/>
   </div>
 </template>
 
@@ -13,6 +12,8 @@ import { grabData } from '../gapihandler'
 import Project from '../models/Project.js'
 import Section from '../models/Section.js'
 import store from '../store'
+import router from '../router'
+
 import * as signedInStates from '../signed-in-states.js'
 
 let fake = false
@@ -162,7 +163,7 @@ export default {
   },
   computed: {
     showButton () {
-      return store.state.projectData === null && store.state.signedInState === signedInStates.SIGNED_IN
+      return store.state.signedInState === signedInStates.SIGNED_IN
     }
   },
   methods: {
@@ -171,6 +172,8 @@ export default {
       let data = await _grabData(this.sheetUrl)
       console.log(`DATA is ${data}`)
       store.commit('projectData', data)
+      console.log('redirecting to render')
+      router.push({name: 'Render'})
     }
   }
 }
