@@ -143,6 +143,14 @@ font-family: 'opensans';
     box-shadow: 0.3px 0.3px 0.3px 0.3px lightgray;
 }
 
+.filler {
+    background: #fff;
+    width: 500px;
+    height: 350px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .header{
     display: -webkit-box;
     display: -moz-box;

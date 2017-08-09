@@ -19,7 +19,7 @@ export default {
       return store.state.message
     },
     showHeader () {
-      // fixme - thi should be possible using router (now we ser it in router.beforeEach)
+      // fixme - this should be possible using router (now we set it in router.beforeEach)
       return store.state.showHeader
     }
   }
@@ -34,6 +34,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 </style>

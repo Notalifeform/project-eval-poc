@@ -18,10 +18,12 @@
       v-bind:key="section.id"
       v-bind:section="section"
       ></li>
+      <li class='filler' v-for="n in ( 5 - projectData.sections.length) ">
+      </li>
       <li class="block">
         <div class="header" id="conclusion">
             <p class="title">Leerpunten  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>eindcijfer</i></p>
-            <div class="grade">7</div>
+            <div class="grade">{{ projectData.rating}}</div>
         </div>
         <div class="content">
             <ul id="lessons">
