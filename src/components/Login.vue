@@ -1,7 +1,10 @@
 <template>
-  <div >
+  <div class="login">
+    <div class="loginlabel">Login status:</div>
+    <div class="loginstatus" v-if="showSignOut">signed in</div>
     <button v-if="showSignOut" v-on:click="signout">Sign out</button>
     <div v-if="showSpinner" class="loader"></div>
+    <div class="loginstatus" v-if="showSignIn">signed out</div>
     <button v-if="showSignIn" v-on:click="signin">Sign in</button>
   </div>
 </template>

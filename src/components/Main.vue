@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" >
+  <div class="homebar" >
     <div v-if="showButton">
       Sheet url: <input v-model="sheetUrl" name="sheet" type='text'>
       <button v-on:click="grabData">Grab data</button>
