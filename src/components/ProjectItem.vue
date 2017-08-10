@@ -36,13 +36,15 @@
     </ul>
     <div class="footer">
         <p>Dit is bedrijfsgevoelige informatie en is strikt voor intern gebruik bedoeld.</p>
-        <img class="logo" src="/static/css/images/sping-logo.svg">
+        <img class="logo" src="../../static/css/images/sping-logo.svg">
     </div>
   </div>
 </template>
 
 <script>
 import store from '../store'
+import '../../static/css/main.css'
+import '../../static/css/images/sping-logo.svg'
 
 export default {
   name: 'hello',
