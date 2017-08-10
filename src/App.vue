@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="header" v-if="showHeader">
-      <router-link v-bind:to="'/about'">About</router-link>
-      <router-link v-bind:to="'/'">Home</router-link>
+    <div id="header" class="homebar" v-if="showHeader">
+     <!-- <router-link v-bind:to="'/'">Home</router-link> -->
+      <div class="apptitle"><p>Sping Project Evaluation Report Creator</p><img class="logo" src="../static/css/images/sping-logo.svg"></div>
       <login/>
     </div>
     <router-view></router-view>
@@ -27,13 +27,3 @@ export default {
 
 </script>
 
-<style>
-#header {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 10px;
-}
-</style>
