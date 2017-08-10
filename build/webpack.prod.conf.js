@@ -45,7 +45,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true
+        safe: true,
+        autoprefixer: false
       }
     }),
     // generate dist index.html with correct asset hash for caching.

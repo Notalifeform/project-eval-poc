@@ -16,6 +16,8 @@ Vue.component('section-item', SectionItem)
 import { handleClientLoad } from './gapihandler.js'
 import * as signedInStates from './signed-in-states.js'
 
+import '../static/css/main.css'
+
 Vue.filter('formatDateMonthYear', function (value) {
   if (value) {
     return moment(value).format('MMMM YYYY')
@@ -29,6 +31,7 @@ router.beforeEach((to, from, next) => {
   console.log(`routing to ${to.path}`)
   store.commit('showHeader', true)
   if (to.path === '/') {
+    console.log('path / -> redirect to Home')
     router.push({name: 'Home'})
     next()
   }

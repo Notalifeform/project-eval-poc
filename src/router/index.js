@@ -24,5 +24,6 @@ export default new Router({
       component: Render
     }
   ],
-  mode: 'history'
+  mode: 'history',
+  base: process.env.environment === 'development' ? '/' : '/project-eval-poc/'
 })
