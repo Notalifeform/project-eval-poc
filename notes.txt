@@ -3,19 +3,20 @@ https://codelabs.developers.google.com/codelabs/sheets-api/#0
 
 TODO
 
- - handle errors (sheet, auth etc)
+ X handle errors (sheet, auth etc)
+  - note: could not get vue-toastr (imort of less gave error)
 
  - create template sheets
  - open sheet
    (see codelab)
  - list sheets
-   https://www.googleapis.com/auth/drive.readonly 
+   https://www.googleapis.com/auth/drive.readonly
  - delete sheet
 
  - html2canvas to export image ?
 
  - replace api by node google API (googleapis, google-auth-library)
  - move reading sheets out of main.Vue
- 
+
 
 
