@@ -1,0 +1,21 @@
+
+https://codelabs.developers.google.com/codelabs/sheets-api/#0
+
+TODO
+
+ - handle errors (sheet, auth etc)
+
+ - create template sheets
+ - open sheet
+   (see codelab)
+ - list sheets
+   https://www.googleapis.com/auth/drive.readonly 
+ - delete sheet
+
+ - html2canvas to export image ?
+
+ - replace api by node google API (googleapis, google-auth-library)
+ - move reading sheets out of main.Vue
+ 
+
+
