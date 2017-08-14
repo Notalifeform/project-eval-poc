@@ -13,6 +13,9 @@ Vue.component('Login', Login)
 Vue.component('Project', ProjectItem)
 Vue.component('section-item', SectionItem)
 
+import Toast from 'vue-easy-toast'
+Vue.use(Toast)
+
 import { handleClientLoad } from './gapihandler.js'
 import * as signedInStates from './signed-in-states.js'
 

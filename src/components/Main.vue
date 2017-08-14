@@ -13,6 +13,7 @@ import Project from '../models/Project.js'
 import Section from '../models/Section.js'
 import store from '../store'
 import router from '../router'
+import Vue from 'vue'
 
 import * as signedInStates from '../signed-in-states.js'
 
@@ -74,7 +75,14 @@ function _getIdFromUrl (url) {
 async function _grabExcelData (url) {
   let id = _getIdFromUrl(url)
 
-  let response = await grabData(id)
+  let response
+  try {
+    response = await grabData(id)
+  } catch (error) {
+    Vue.toast(`error reading data ${JSON.stringify(error.result.error.message)}`,
+     {className: 'et-alert', horizontalPosition: 'center'})
+    return null
+  }
 
   let project = new Project()
 
@@ -169,11 +177,17 @@ export default {
   methods: {
     async grabData () {
       store.commit('projectData', null)
+      if (!this.sheetUrl) {
+        Vue.toast('Please provide a sheet URL',
+          {className: 'et-alert', horizontalPosition: 'center'})
+      }
       let data = await _grabData(this.sheetUrl)
       console.log(`DATA is ${data}`)
       store.commit('projectData', data)
-      console.log('redirecting to render')
-      router.push({name: 'Render'})
+      if (data !== null) {
+        console.log('redirecting to render')
+        router.push({name: 'Render'})
+      }
     }
   }
 }
