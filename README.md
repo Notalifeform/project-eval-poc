@@ -30,6 +30,8 @@ npm test
 # publish
 ./node_modules/gh-pages/bin/gh-pages -d dist
 
+# all
+rm -rf dist && npm run build && ./node_modules/gh-pages/bin/gh-pages -d dist
 
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
