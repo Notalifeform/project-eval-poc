@@ -47,7 +47,7 @@ import '../../static/css/main.css'
 import '../../static/css/images/sping-logo.svg'
 
 export default {
-  name: 'hello',
+  name: 'projectItem',
   data () {
     return {
       msg: 'Welcome to Your About'

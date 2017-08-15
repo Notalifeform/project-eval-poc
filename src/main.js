@@ -7,11 +7,13 @@ import store from './store'
 import Login from '@/components/Login'
 import ProjectItem from '@/components/ProjectItem'
 import SectionItem from '@/components/SectionItem'
+import Explanation from '@/components/Explanation'
 import moment from 'moment'
 
 Vue.component('Login', Login)
 Vue.component('Project', ProjectItem)
 Vue.component('section-item', SectionItem)
+Vue.component('explanation', Explanation)
 
 import Toast from 'vue-easy-toast'
 Vue.use(Toast)

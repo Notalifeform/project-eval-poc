@@ -3,6 +3,7 @@
     <div v-if="showButton">
       Sheet url: <input v-model="sheetUrl" name="sheet" size="120" type='text'>
       <button v-on:click="grabData">Grab data</button>
+      <explanation/>
     </div>
   </div>
 </template>
@@ -162,12 +163,7 @@ async function _grabExcelData (url) {
 }
 
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
+  name: 'main',
   computed: {
     showButton () {
       return store.state.signedInState === signedInStates.SIGNED_IN

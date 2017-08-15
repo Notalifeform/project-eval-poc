@@ -208,6 +208,22 @@ button {
   margin-right: 10px;
 }
 
+.explanation h1 {
+  padding-top: 50px;
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+.explanation ul {
+  display: block;
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+.explanation ol {
+  display: block;
+  list-style-type: disc;
+  padding-left: 40px;
+}
 
 .homebar{
   padding: 20px;

@@ -15,7 +15,7 @@ import { signIn, signOut } from '../gapihandler'
 import * as signedInStates from '../signed-in-states.js'
 
 export default {
-  name: 'hello',
+  name: 'login',
   computed: {
     showSignOut () {
       return store.state.signedInState === signedInStates.SIGNED_IN
