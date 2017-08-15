@@ -11,7 +11,8 @@ export default new Vuex.Store({
     message: '',
     signedInState: signedInStates.CHECKING,
     projectData: null,
-    showHeader: true
+    showHeader: true,
+    sheetUrl: null
   },
   mutations: {
     increment (state) {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     },
     showHeader (state, data) {
       state.showHeader = data
+    },
+    sheetUrl (state, data) {
+      state.sheetUrl = data
     }
   }
 })

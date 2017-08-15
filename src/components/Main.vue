@@ -1,7 +1,7 @@
 <template>
   <div class="homebar" >
     <div v-if="showButton">
-      Sheet url: <input v-model="sheetUrl" name="sheet" type='text'>
+      Sheet url: <input v-model="sheetUrl" name="sheet" size="120" type='text'>
       <button v-on:click="grabData">Grab data</button>
     </div>
   </div>
@@ -165,13 +165,20 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      sheetUrl: null
+      msg: 'Welcome to Your Vue.js App'
     }
   },
   computed: {
     showButton () {
       return store.state.signedInState === signedInStates.SIGNED_IN
+    },
+    sheetUrl: {
+      get () {
+        return store.state.sheetUrl
+      },
+      set (value) {
+        store.commit('sheetUrl', value)
+      }
     }
   },
   methods: {
