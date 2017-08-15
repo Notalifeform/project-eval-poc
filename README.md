@@ -1,6 +1,7 @@
-# vue2
+# Sping Project Evaluation Report Creator
 
-> A Vue.js project
+Quick hack to create a report from a Google Sheet using Vue
+
 
 ## Build Setup
 
@@ -34,4 +35,18 @@ npm test
 rm -rf dist && npm run build && ./node_modules/gh-pages/bin/gh-pages -d dist
 
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+# TODO
+
+- [X] handle errors (sheet, auth etc)
+- [ ] note: could not get vue-toastr (imort of less gave error)
+
+- [ ] create template sheets
+- [ ] open sheet (see codelab)
+- [ ] list sheets https://www.googleapis.com/auth/drive.readonly
+- [ ] delete sheet
+
+- [ ] html2canvas to export image ?
+
+- [ ] replace api by node google API (googleapis, google-auth-library)
+- [ ] move reading sheets out of main.Vue
+- [ ] move css to less
